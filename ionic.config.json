@@ -1,0 +1,8 @@
+{
+  "name": "semestral project",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "8b528aae"
+}
