@@ -1,0 +1,2 @@
+# semestral-project
+npm install
