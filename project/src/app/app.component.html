@@ -5,6 +5,12 @@
         <ion-list id="inbox-list">
           <ion-list-header>TeLlevoAPP</ion-list-header>
           <ion-note>Planifica tu regreso a casa</ion-note>
+          <ion-buttons>
+            <ion-button color="success" [routerLink]="['/login']" routerLinkActive="router-link-active" >
+              Log-in
+              <ion-icon name="log-in-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
 
           <ion-menu-toggle auto-hide="false">
             <ion-item [routerLink]="'/home'" routerLinkActive="selected">
