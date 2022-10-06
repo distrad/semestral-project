@@ -8,6 +8,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
+
   loading :HTMLIonLoadingElement;
   constructor(private loadingCtrl: LoadingController) { }
   ngOnInit(): void {
@@ -50,5 +51,7 @@ export class HomePage implements OnInit {
     });
     await this.loading.present();
   }
+
+    
 
 }
