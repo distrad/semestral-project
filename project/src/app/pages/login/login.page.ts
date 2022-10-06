@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,26 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
+  pageTitle = 'login';
+  isNotHome = true;
+
   //Modelo
-  user : any={
-    username: '',
-    password: ''
+  user : any = {
+    username : '',
+    password : ''
   }
-  field: string= '';
+
+  field : string = '';
 
   constructor(private toastCtrl: ToastController, private route: Router) { }
 
   ngOnInit() {
   }
+
   ingresar(){
     if(this.validateModel(this.user)){
       this.presentToast('Bienvenido ' + this.user.username);
-      this.route.navigate(['/'])
+      this.route.navigate(['/home'])
     }
     else{
       this.presentToast('Debes ingresar: ' + this.field);
@@ -47,4 +53,5 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
+
 }
