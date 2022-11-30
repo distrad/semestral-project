@@ -57,7 +57,7 @@ export class ConductoresPage {
         {
           name:"sexo",
           type:"text",
-          placeholder:"sexo"
+          placeholder:"Sexo"
         },
         {
           name:"anoNacimiento",
