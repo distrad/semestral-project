@@ -29,15 +29,15 @@ export class UsuarioService {
     const usuarioRef = doc(this.firestore, `usuarios/${usuario.id}`);
     return updateDoc(usuarioRef, 
       {
-        correo:usuario.correo,
-        image:usuario.image,
-        nombreCompleto:usuario.nombreCompleto,
         rut:usuario.rut,
-        telefono:usuario.telefono,
+        nombreCompleto:usuario.nombreCompleto,
         usuario:usuario.usuario,
-        anoNacimiento:usuario.AnoNacimiento,
+        sexo:usuario.sexo,
+        anoNacimiento:usuario.anoNacimiento,
         direccion:usuario.direccion,
-        sexo:usuario.sexo
+        telefono:usuario.telefono,
+        correo:usuario.correo,
+        image:usuario.image
       }
     );
   }

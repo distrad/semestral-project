@@ -31,7 +31,11 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '404'
+  },  {
+    path: 'conductores',
+    loadChildren: () => import('./pages/conductores/conductores.module').then( m => m.ConductoresPageModule)
   },
+
 
 
 
