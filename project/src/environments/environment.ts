@@ -12,7 +12,9 @@ export const environment = {
     messagingSenderId: "12967031859",
     appId: "1:12967031859:web:3dfd1c8cb4549ce6b11f46",
     measurementId: "G-GXNEQJ76GP"
-  }
+  },
+  API_KEY_WEATHER:'332e1b0166c8de5b8257b7bf908c880a',
+  API_URL_WEATHER:'https://api.openweathermap.org/data/2.5/'
   
 };
 

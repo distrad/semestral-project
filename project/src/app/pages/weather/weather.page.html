@@ -1,0 +1,30 @@
+<app-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-tittle>Clima</ion-tittle>
+  </ion-toolbar>
+</app-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label slot="end">{{todayDate | date:"EEEE MM YYYY" }} </ion-label>
+      <p>Clima hoy</p>
+    </ion-item>
+    <ion-item>
+      <span>
+         {{(weatherTemp?.temp -277.1).toFixed(0)}}
+      </span>
+      <span>
+        °
+      </span>
+      <img slot="end" [src]=weatherIcon>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="location"></ion-icon>
+      <span>{{cityName}}</span>
+    </ion-item>
+  </ion-card>
+</ion-content>
