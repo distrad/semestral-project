@@ -23,13 +23,17 @@ const routes: Routes = [
     path: 'page404',
     loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
   },
-
+  {
+    path: 'modal',
+    loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule)
+  },
   //Dejar esta ulitma
   {
     path: '**',
     redirectTo: '404'
-  }
-  
+  },
+
+
 
 ];
 
