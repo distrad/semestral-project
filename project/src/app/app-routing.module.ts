@@ -20,18 +20,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'page404',
-    loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'modal',
     loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule)
   },
-  //Dejar esta ulitma
   {
-    path: '**',
-    redirectTo: '404'
-  },  {
     path: 'conductores',
     loadChildren: () => import('./pages/conductores/conductores.module').then( m => m.ConductoresPageModule)
   },
@@ -39,8 +35,15 @@ const routes: Routes = [
     path: 'weather',
     loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
   },
-
-
+  //Dejar esta ulitma
+  {
+    path: 'page404',
+    loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'page404'
+  },
 
 
 ];

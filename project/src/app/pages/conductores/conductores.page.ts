@@ -75,7 +75,7 @@ export class ConductoresPage {
           placeholder:"Telefono"
         },
         {
-          name:"correo",
+          name:"email",
           type:"email",
           placeholder:"correo@correo.com"
         },

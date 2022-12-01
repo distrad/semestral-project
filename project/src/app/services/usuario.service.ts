@@ -36,7 +36,7 @@ export class UsuarioService {
         anoNacimiento:usuario.anoNacimiento,
         direccion:usuario.direccion,
         telefono:usuario.telefono,
-        correo:usuario.correo,
+        email:usuario.email,
         image:usuario.image
       }
     );

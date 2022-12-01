@@ -7,6 +7,6 @@ export interface Usuario{
     anoNacimiento:string;
     direccion:string;
     telefono:number;
-    correo:string;
+    email:string;
     image:string;
 }

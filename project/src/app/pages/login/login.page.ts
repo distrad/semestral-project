@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
-import { Key } from 'protractor';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,48 +11,70 @@ import { Key } from 'protractor';
 })
 export class LoginPage implements OnInit {
 
-  pageTitle = 'login';
-  isNotHome = true;
+  credentials!: FormGroup;
 
-  //Modelo
-  user : any = {
-    username : '',
-    password : ''
-  }
-
-  field : string = '';
-
-  constructor(private toastCtrl: ToastController, private route: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.crearFormulario();
   }
 
-  ingresar(){
-    if(this.validateModel(this.user)){
-      this.presentToast('Bienvenido ' + this.user.username);
-      this.route.navigate(['/home'])
+  crearFormulario(){
+    this.credentials = this.formBuilder.group({
+      email: ['' , [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+
+  get email(){
+    return this.credentials?.get('email');
+  }
+
+  get password(){
+    return this.credentials?.get('password');
+  }
+
+  async login(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    const user = await this.authService.login(this.credentials.value.email,this.credentials.value.password);
+    await loading.dismiss();
+
+    if(user){
+      this.router.navigateByUrl('/home',{replaceUrl:true});
     }
     else{
-      this.presentToast('Debes ingresar: ' + this.field);
+      this.alertPresent('Login failed','Please try again!');
     }
   }
 
-  validateModel(model: any){
-    for(var[key,value] of Object.entries(model)){
-      if(value == ''){
-        this.field = key;
-        return false;
-      }
+  async register(){
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    const user = await this.authService.register(this.credentials.value.email,this.credentials.value.password);
+    await loading.dismiss();
+
+    if(user){
+      this.router.navigateByUrl('/home',{replaceUrl:true});
     }
-    return true;
+    else{
+      this.alertPresent('Register failed','Please try again!');
+    }
   }
 
-  async presentToast(message: string, duration?: number){
-    const toast = await this.toastCtrl.create({
+  async alertPresent(header:string,message:string){
+    const alert = await this.alertCtrl.create({
+      header:header,
       message:message,
-      duration:duration?duration:2000
+      buttons:['OK']
     });
-    toast.present();
+    await alert.present();
   }
 
 }

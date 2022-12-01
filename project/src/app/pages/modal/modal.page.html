@@ -19,20 +19,20 @@
       <ion-input type="text" [(ngModel)]="usuario.sexo" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Nacimiento</ion-label>
-      <ion-input type="number" [(ngModel)]="usuario.anoNacimiento" required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" [(ngModel)]="usuario.correo" required></ion-input>
+      <ion-label position="floating">anoNacimiento</ion-label>
+      <ion-input type="date" [(ngModel)]="usuario.anoNacimiento" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">direccion</ion-label>
-      <ion-input type="email" [(ngModel)]="usuario.direccion" required></ion-input>
+      <ion-input type="text" [(ngModel)]="usuario.direccion" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Telefono</ion-label>
-      <ion-input type="email" [(ngModel)]="usuario.telefono" required></ion-input>
+      <ion-input type="number" [(ngModel)]="usuario.telefono" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="usuario.email" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Image</ion-label>
