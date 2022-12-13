@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { WeatherPageRoutingModule } from './weather-routing.module';
+import { PasswordResetPageRoutingModule } from './password-reset-routing.module';
 
-import { WeatherPage } from './weather.page';
+import { PasswordResetPage } from './password-reset.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WeatherPageRoutingModule
+    PasswordResetPageRoutingModule
   ],
-  declarations: [WeatherPage]
+  declarations: [PasswordResetPage]
 })
-export class WeatherPageModule {}
+export class PasswordResetPageModule {}

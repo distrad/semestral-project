@@ -1,21 +1,53 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Iniciar sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <form (ngSubmit)="login()" [formGroup]="credentials">
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-      <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Formato email no válido</ion-note>
-    </ion-item>
-    <ion-item class="ion-margin-bottom">
-      <ion-input type="password" placeholder="password" formControlName="password"></ion-input>
-      <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Debes ingresar al menos 6 caracteres</ion-note>
-    </ion-item>
+<ion-content>
+  <ion-item lines="full">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="text" #email required></ion-input>
+  </ion-item>
 
-    <ion-button expand="full" type="submit" [disabled]="!credentials.valid">Login</ion-button>
-    <ion-button expand="full" type="button" (click)="register()">Crear cuenta</ion-button>
-  </form>
+  <ion-item lines="full">
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" #password required></ion-input>
+  </ion-item>
+
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" (click)="logIn(email, password)" expand="block"
+        >Ingresar</ion-button
+      >
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button
+        expand="block"
+        color="warning"
+        [routerLink]="['/password-reset']"
+      >
+        Resetear contraseña
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button
+        type="submit"
+        color="danger"
+        (click)="authService.GoogleAuth()"
+        expand="block"
+      >
+        Ingresar con google
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

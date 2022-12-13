@@ -17,19 +17,11 @@
             <ion-item  [routerLink]="'/conductores'" routerLinkActive="selected">
               <p>Conductores</p>
             </ion-item>
-            <ion-item  [routerLink]="'/weather'" routerLinkActive="selected">
-              <p>Clima</p>
-            </ion-item>
-            <ion-item  [routerLink]="'/conversor'" routerLinkActive="selected">
-              <p>test</p>
-            </ion-item>
+            <ion-button type="submit" (click)="authService.SignOut()" expand="block">
+              Cerrar sesion
+            </ion-button>
           </ion-menu-toggle>
           <br>
-          <ion-buttons slot="end">
-            <ion-button (click)="logout()">
-              <ion-icon slot="icon-only" name="log-out"></ion-icon>
-            </ion-button>
-          </ion-buttons>
         </ion-list>
       </ion-content>
     </ion-menu>

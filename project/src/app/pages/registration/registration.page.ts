@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../shared/authentication-service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-registration',
+  templateUrl: './registration.page.html',
+  styleUrls: ['./registration.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegistrationPage implements OnInit {
   constructor(
     public authService: AuthenticationService,
     public router: Router
@@ -15,16 +15,12 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  logIn(email, password) {
+  signUp(email, password) {
     this.authService
-      .SignIn(email.value, password.value)
+      .RegisterUser(email.value, password.value)
       .then((res) => {
-        if (this.authService.isEmailVerified) {
-          this.router.navigate(['dashboard']);
-        } else {
-          window.alert('Email is not verified');
-          return false;
-        }
+        // Do something here
+        this.authService.SendVerificationMail();
       })
       .catch((error) => {
         window.alert(error.message);

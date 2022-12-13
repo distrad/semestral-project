@@ -1,49 +1,43 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
-    ...canActivate(redirectLoggedInToHome),
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'login',
-    redirectTo: ''
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
-  },
-  {
-    path: 'modal',
-    loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
   {
     path: 'conductores',
-    loadChildren: () => import('./pages/conductores/conductores.module').then( m => m.ConductoresPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    loadChildren: () => import('./pages/conductores/conductores.module').then( m => m.ConductoresPageModule)
   },
   {
-    path: 'weather',
-    loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    path: 'registration',
+    loadChildren: () => import('./pages/registration/registration.module').then( m => m.RegistrationPageModule)
   },
   {
-    path: 'conversor',
-    loadChildren: () => import('./pages/conversor/conversor.module').then( m => m.ConversorPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    path: 'password-reset',
+    loadChildren: () => import('./pages/password-reset/password-reset.module').then( m => m.PasswordResetPageModule)
+  },
+  {
+    path: 'verify-email',
+    loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
   },
   //Dejar esta ulitma
   {
@@ -53,7 +47,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'page404'
-  }
+  },
 
 
 ];

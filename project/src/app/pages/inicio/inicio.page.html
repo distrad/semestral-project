@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Iniciar sesion </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-tittle> Bienvenido!! </ion-card-tittle>
+      <br>
+      <ion-card-subtittle> Ingrese a una opcion </ion-card-subtittle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-align-self-center">
+          <ion-button
+            [routerLink]="['/registration']"
+            expand="block"
+            color="primary"
+            >Registrarse</ion-button
+          >
+          <span class="ion-align-self-center" > Ya es usuario?</span>
+          <ion-button [routerLink]="['/login']" expand="block" color="danger"
+            >Ingresar</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>
