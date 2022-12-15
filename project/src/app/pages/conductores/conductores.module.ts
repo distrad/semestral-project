@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { ConductoresPage } from './conductores.page';
 
 import { ConductoresPageRoutingModule } from './conductores-routing.module';
 
-import { ConductoresPage } from './conductores.page';
+
 
 @NgModule({
   imports: [

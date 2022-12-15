@@ -3,10 +3,22 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-tittle>Conductores</ion-tittle>
+    <ion-tittle>Organiza un viaje junto a compañeros</ion-tittle>
   </ion-toolbar>
 </app-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Organice su viaje</ion-card-title>
+      <ion-card-subtitle>Cree una publicacion para los compañeros pasajeros
+        <br> <br>
+        Al pasado de 20 minutos su publicacion se eliminara
+      </ion-card-subtitle>
+    </ion-card-header>
   
+    <ion-card-content>
+      <ion-button (click)="addViaje()">Publique su viaje</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

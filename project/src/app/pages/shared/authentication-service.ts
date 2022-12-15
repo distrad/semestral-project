@@ -57,7 +57,7 @@ export class AuthenticationService {
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
         window.alert(
-          'Password reset email has been sent, please check your inbox.'
+          'Hemos enviado un correo para que cambies tu conntraseña'
         );
       })
       .catch((error) => {

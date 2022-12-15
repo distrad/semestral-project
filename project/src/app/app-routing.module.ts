@@ -39,15 +39,29 @@ const routes: Routes = [
     path: 'verify-email',
     loadChildren: () => import('./pages/verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
   },
+  {
+    path: 'pasajero',
+    loadChildren: () => import('./pages/pasajero/pasajero.module').then( m => m.PasajeroPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule)
+  },
   //Dejar esta ulitma
   {
     path: 'page404',
     loadChildren: () => import('./pages/page404/page404.module').then( m => m.Page404PageModule)
   },
+
   {
     path: '**',
     redirectTo: 'page404'
   },
+
+
+
+
+
 
 
 ];

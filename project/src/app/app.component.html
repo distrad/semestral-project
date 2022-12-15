@@ -15,7 +15,10 @@
               <p>Sobre nosotros</p>
             </ion-item>
             <ion-item  [routerLink]="'/conductores'" routerLinkActive="selected">
-              <p>Conductores</p>
+              <p>Publicar viaje</p>
+            </ion-item>
+            <ion-item  [routerLink]="'/pasajero'" routerLinkActive="selected">
+              <p>Buscar viaje</p>
             </ion-item>
             <ion-button type="submit" (click)="authService.SignOut()" expand="block">
               Cerrar sesion
