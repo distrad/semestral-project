@@ -51,7 +51,7 @@ export class ConductoresPage {
         {
           name:"espacioDisponible",
           type:"number",
-          placeholder:"Espacio con el que cuentas"
+          placeholder:"Espacio disponible"
         },
         {
           name:"valorPersona",
@@ -75,7 +75,7 @@ export class ConductoresPage {
           role:'confirm',
           handler:(data) => {
             this.usuarioService.addViaje(data);
-            this.toasPresent('User added!!!');
+            this.toasPresent('Viaje publicado');
           }
         }
       ]
